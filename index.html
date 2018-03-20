@@ -1,19 +1,91 @@
 <!DOCTYPE html>
 <html>
+    <head>
+      <link rel="stylesheet" href="style.css">
+      <title>JavaScript Basics</title>
+
+    </head>
     <body>
+      <div>
+        <div>
+            <h1 id="header">Hello World</h1>
+        </div>
 
+        <div id="content">
+          <p id="pageContent">This html is created to learn JavaScript</p>
+          <p id="changeThis">This tag and Id needs to be changes using JavaScript</p>
+          <p class="changeThisToo">Hello</p>
+        </div>
+        <div>
+          <img src="http://r.ddmcdn.com/w_830/s_f/o_1/cx_98/cy_0/cw_640/ch_360/APL/uploads/2015/07/cecil-AP463227356214-1000x400.jpg">
+          <button onclick="changeImg()">Next</button>
+        </div>
 
+        <div id = "animBox">
+          <div id = "moveMe">
+          <div>
+        <div>
+      </div>
         <script>
             'use strict'
-            function min(a, b) {
-                    if (a < b) {
-                            return a;
-                    } else {
-                            return b;
-                            }
-                                }
-         min(1,2);
-            
+
+            document.getElementById("changeThis").innerHTML = "<b>This tag have been changed with the JavaScript</b>";
+            var classXElement = document.getElementsByClassName("changeThisToo");
+            classXElement[0].innerHTML = "This tag have been populated using JavaScript";
+
+            var getAllPTags = document.getElementsByTagName('p');
+
+            for (var i=0;i<getAllPTags.length;i++){
+              getAllPTags[i].innerHTML = "inner HTML changed me. Change applied by getElementsByTagName";
+            }
+
+
+            var elementById = document.getElementById("content");
+            var elementById_child =elementById.childNodes;
+
+              console.log(elementById_child.length);
+            for (i=0;i<elementById_child.length;i++){
+                elementById_child[i].innerHTML="Hello World! I got changed again";
+            }
+
+            function changeImg(){
+            var changeImg = document.getElementsByTagName('img');
+            console.log(changeImg.length);
+            changeImg[0].src = "https://static.pexels.com/photos/145939/pexels-photo-145939.jpeg";
+            changeImg[0].style.width = "300px";
+            changeImg[0].style.height = "200px";
+
+          }
+
+
+            //creating a new paragraph
+            var p = document.createElement("p");
+            var node = document.createTextNode("Some new text");
+            //adding the text to the paragraph
+            p.appendChild(node);
+
+            var div = document.getElementById("content");
+            div.appendChild(p);
+
+            var pos = 0;
+            var animBox = document.getElementById("moveMe");
+
+            function move(){
+
+                pos+=1;
+              if(pos==350){
+                pos=0;
+              }
+              else{
+              animBox.style.left = pos+"px";
+            }
+
+            }
+
+            var t = setInterval(move,10);
+
+
+
         </script>
     </body>
 
