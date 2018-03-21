@@ -17,13 +17,15 @@
           <p class="changeThisToo">Hello</p>
         </div>
         <div>
-          <img src="http://r.ddmcdn.com/w_830/s_f/o_1/cx_98/cy_0/cw_640/ch_360/APL/uploads/2015/07/cecil-AP463227356214-1000x400.jpg">
+          <img id = "imgBox" src="http://r.ddmcdn.com/w_830/s_f/o_1/cx_98/cy_0/cw_640/ch_360/APL/uploads/2015/07/cecil-AP463227356214-1000x400.jpg">
           <button onclick="changeImg()">Next</button>
         </div>
 
         <div id = "animBox">
           <div id = "moveMe">
           <div>
+              
+        
         <div>
       </div>
         <script>
@@ -47,7 +49,10 @@
             for (i=0;i<elementById_child.length;i++){
                 elementById_child[i].innerHTML="Hello World! I got changed again";
             }
-
+            
+            var eImg = document.getElementById("imgBox");
+            eImg.addEventListener("click",changeImg);
+            
             function changeImg(){
             var changeImg = document.getElementsByTagName('img');
             console.log(changeImg.length);
@@ -68,17 +73,34 @@
             div.appendChild(p);
 
             var pos = 0;
+            var flagPos =1;
             var animBox = document.getElementById("moveMe");
 
             function move(){
-
+                if(flagPos==0){
+                    pos+=-1;
+                    if(pos==0){
+                        flagPos =1;
+                    }
+                }
+                else {
+                    pos+=1;
+                    if(pos==350){
+                        flagPos=0;
+                    }
+                    
+                }
+                
+                animBox.style.left = pos+"px";
+            /*********************
                 pos+=1;
               if(pos==350){
                 pos=0;
               }
               else{
               animBox.style.left = pos+"px";
-            }
+              }
+            **********************/
 
             }
 

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <title>Image Viewer</title>
+    </head>
+    
+    <body>
+        <div id="container">
+        <div id="imgContainer">
+            <img id="displayImg" src="img/DSC_0001.JPG">
+        </div>
+        <div id = "nav">
+            <button id="prevImg">Prev</button>
+            <button id="nextImg">Next</button>
+            
+        </div>
+        </div>
+        <script>
+            var i=1;
+            function dispNextImg(){
+                
+                var imgCon = document.getElementById("displayImg");
+               
+                if(i>15){
+                    i=16;
+                }
+                else{
+                i+=1;
+                }
+                
+                switch (i.toString().length) {
+                    case 1:
+                        var imgLink = "img/DSC_000"+i+".JPG";
+                        break;
+                    case 2:
+                        var imgLink = "img/DSC_00"+i+".JPG";
+                        break;
+                    case 3:
+                        var imgLink = "img/DSC_0"+i+".JPG";
+                        break;
+                       }
+                //var imgLink = "img/DSC_000"+i+".JPG";
+                console.log(imgLink)
+                imgCon.src = (imgLink);
+                
+
+            }
+            
+            function dispPrevImg(){
+                
+                var imgCon = document.getElementById("displayImg");
+               
+                console.log(i.toString().length);
+                
+                if(i<2){
+                    i =1;
+                }
+                else{
+                i+=-1;
+                }                
+                
+                switch (i.toString().length) {
+                    case 1:
+                        var imgLink = "img/DSC_000"+i+".JPG";
+                        break;
+                    case 2:
+                        var imgLink = "img/DSC_00"+i+".JPG";
+                        break;
+                    case 3:
+                        var imgLink = "img/DSC_0"+i+".JPG";
+                        break;
+                       }
+                //var imgLink = "img/DSC_000"+i+".JPG";
+                console.log(imgLink)
+                imgCon.src = (imgLink);
+
+            }
+            
+            var nextImg = document.getElementById("nextImg");
+            nextImg.addEventListener("click",dispNextImg);
+ 
+            var prevImg = document.getElementById("prevImg");
+            prevImg.addEventListener("click",dispPrevImg);
+        
+        </script>
+    </body>
+
+</html>

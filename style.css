@@ -16,3 +16,33 @@
   height:50px;
   position:absolute;
 }
+
+img {
+    
+    width=500px;
+    height:400px;
+}
+
+
+#container {
+    width:600px;
+    margin:auto;
+}
+
+#nav { width:220px;
+    margin:10px auto;
+}
+
+#prevImg{
+    display:block;
+    width:100px;
+    padding:5px;
+    float:left
+}
+
+#nextImg{
+    display:block;
+    width:100px;
+    padding:5px;
+    float:right;
+}
